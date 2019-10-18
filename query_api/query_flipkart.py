@@ -1,4 +1,4 @@
-iimport requests, json, pprint, time
+import requests, json, pprint, time
 import hashlib
 import base64
 
@@ -16,7 +16,6 @@ def query(query_str):
              }
     response = requests.get(URL_SEARCH, headers=headers, params=params)
     #jsonData = json.loads(response)
-    print(response.json())
     return response.json()
 
 if __name__=="__main__":
