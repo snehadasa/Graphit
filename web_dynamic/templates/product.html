@@ -40,9 +40,9 @@
 
     <!-- Product Description -->
     <div class="product-description">
-      <span>Headphones</span>
-      <h1>Beats EP</h1>
-      <p>The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation. Sturdy headband and on-ear cushions suitable for live performance</p>
+      { % for item in items % }
+      <h1>{{ item["title"] }}</h1>
+      <p>{{ item["productDescription"] }}</p>
     </div>
 
     <!-- Product Configuration -->
@@ -75,6 +75,7 @@
 
         <div class="cable-choose">
           <button>Straight</button>
+      <span></span>
           <button>Coiled</button>
           <button>Long-coiled</button>
         </div>

@@ -28,7 +28,7 @@ def graphit_homepage():
     """
     handles request for homepage
     """
-    return render_template('homepage.html')
+    return render_template('homepage.html', items= [])
 
 @app.route('/search')
 def search_products():
@@ -37,9 +37,9 @@ def search_products():
     """
     search_query = request.args['query']
     if not search_query:
-        return render_template('homepage.html');
+        return render_template('homepage.html', items = []);
     items = query(search_query)
-    return render_template('product.html', items=items)
+    return render_template('homepage.html', items=items)
 
 
 if __name__ == "__main__":

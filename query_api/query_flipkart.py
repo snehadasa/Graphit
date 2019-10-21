@@ -22,7 +22,7 @@ def extract_product(product):
     result = {}
     result['product_id'] = product['productId']
     result['title'] = product['title']
-    result['image_url'] = product['imageUrls']['400x400']
+    result['image_url'] = product['imageUrls']['200x200']
     result['description'] = product['productDescription']
     if product['flipkartSpecialPrice']:
         result['price'] = product['flipkartSpecialPrice']['amount']

@@ -25,27 +25,15 @@ section.filters > button:hover {
     opacity: 0.9;
 }
 
-.popover {
-    display: none;
-    position: relative;
-    left: -51px;
-    background-color: #FAFAFA;
-    width: 100%;
-    border: 5px solid #DDDDDD;
-    border-color: black;
-    border-radius: 7px;
-    z-index: 1;
-    padding: 30px 50px 30px 0;
-    margin-top: 17px;
+.product {
+    display: inline-block;
 }
 
-.popover, .popover ul {
-    list-style-type: none;
-}
-
-.popover h2 {
-    margin-top: 0px;
-    margin-bottom: 5px;
+.product_title_description {
+    box-sizing: inherit;
+    display: inline-block;
+    width: 35%;
+    margin-top: 60px;
 }
 
 input:focus {
@@ -80,7 +68,7 @@ body {
     margin: 0;
     padding: 0;
     color: #484848;
-    background-color: teal;
+    background-color: gray;
     font-size: 14px;
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
     width: 100%;
