@@ -2,8 +2,9 @@
 """script that starts a Flask web application"""
 
 import os
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, request
 from models import storage
+from query_api.query_flipkart import query
 import uuid
 
 # flask setup
@@ -29,16 +30,17 @@ def graphit_homepage():
     """
     return render_template('homepage.html')
 
-@app.route('/product')
-def product_page(the_id=None):
+@app.route('/search')
+def search_products():
     """
-    handles request to custom template for products
+    searches product.
     """
-    product_dict = storage.all(Product)
-    result = product_dict.get("Product.{}".format(product_id))
-    if result is not None:
-        return render_template('1-hbnb.html', product=result)
-    return "UNABLE TO SEARCH THE PRODUCT"
+    search_query = request.args['query']
+    if not search_query:
+        return render_template('homepage.html');
+    items = query(search_query)
+    return render_template('product.html', items=items)
+
 
 if __name__ == "__main__":
     """

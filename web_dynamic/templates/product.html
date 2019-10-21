@@ -4,11 +4,13 @@
     <meta charset="utf-8">
    <meta name="viewport" content="width=device-width">
     <title>GraphIt</title>
-    <link rel="shortcut icon" href="images/icon.png">
-    <link rel="stylesheet" href="styles/product_common.css">
-    <link rel="stylesheet" href="styles/footer.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/filters.css">
+   <link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.png') }}?{{ cache_id }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/product_common.css') }}?{{ cache_id }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/header.css') }}?{{ cache_id }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/footer.css') }}?{{ cache_id }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/filters.css') }}?{{ cache_id }}">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../static/scripts/homepage.js?{{ cache_id }}"></script>
   </head>
   <body>
    <header>
