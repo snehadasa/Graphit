@@ -1,6 +1,7 @@
 import requests, json
 import hashlib
 import base64
+import mysql.connector
 
 URL_SEARCH = "https://affiliate-api.flipkart.net/affiliate/1.0/search.json"
 URL_PRODUCT = "https://affiliate-api.flipkart.net/affiliate/1.0/product.json"
@@ -44,7 +45,29 @@ def query_product(product_id):
         'id': product_id
     }
     response = requests.get(URL_PRODUCT, headers=headers, params=params)
-    return extract_product(response.json()['productBaseInfoV1']);
+    return extract_product(response.json()['productBaseInfoV1'])
+
+def storing_json_to_db():
+    connection = mysql.connector.connect(
+        host="localhost",
+        user="graphit_user",
+        passwd="graphit_pwd",
+        database="graphit_db"
+    )
+
+    mycursor = connection.cursor()
+
+    data = """INSERT INTO graphit_db.products
+    (
+        productId, title, flipkartSpecialPrice, flipkartSellingPrice
+    )
+        Values (%s, %s, %s)"""
+    
+    for i in query_product(response):
+        mycursor.execute(data, (i['productId'], i['title'], i['flipkartSpecialPrice'], i['flipkartSellingPrice']))
+    connection.commit()
+    print(mycursor.rowcount, "was inserted.")
+
 
 if __name__=="__main__":
     print(query('iphone'))
