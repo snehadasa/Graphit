@@ -89,3 +89,7 @@ class DBStorage:
             if cls in classes:
                 object_count += self.__session.query(classes[cls]).count()
         return object_count
+
+    def get_session(self):
+        """returns a session to query"""
+        return self.__session

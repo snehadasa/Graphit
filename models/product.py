@@ -5,6 +5,8 @@ from models.base_model import BaseModel, Base
 from os import getenv
 import sqlalchemy
 from sqlalchemy import Column, String, ForeignKey, Float, Index
+from datetime import datetime, timedelta
+from sqlalchemy import cast, Date
 from sqlalchemy.orm import relationship
 
 
@@ -18,3 +20,25 @@ class Product(BaseModel, Base):
     def __init__(self, *args, **kwargs):
         """initializes Product"""
         super().__init__(*args, **kwargs)
+
+    @staticmethod
+    def get_product(product_id):
+        """ Gets latest product that was queryied today"""
+        current_time = datetime.utcnow()
+        yesterday = current_time - timedelta(days=1)
+        products = models.storage.get_session().query(Product).filter(Product.product_id == product_id).filter(
+            Product.created_at > yesterday).all()
+        if len(products) > 0:
+            return products[0]
+        else:
+            return None
+
+    @staticmethod
+    def get_prices(product_id):
+        """get price by date"""
+        products = models.storage.get_session().query(Product).filter(Product.product_id == product_id).all()
+        prices = {}
+        for product in products:
+            prices[product.created_at.strftime('%Y/%m/%d')] = product.price
+        return prices
+

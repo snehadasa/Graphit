@@ -29,11 +29,19 @@ section.filters > button:hover {
     display: inline-block;
 }
 
+.product_image {
+    width: 100px;
+    height: 200px;
+    margin-left: 10px;
+}
+
 .product_title_description {
     box-sizing: inherit;
     display: inline-block;
     width: 35%;
-    margin-top: 60px;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-bottom: 30px;
 }
 
 input:focus {
@@ -73,3 +81,5 @@ body {
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
     width: 100%;
 }
+
+.product_list.

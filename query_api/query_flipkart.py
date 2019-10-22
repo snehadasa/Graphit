@@ -1,7 +1,7 @@
 import requests, json
 import hashlib
 import base64
-import mysql.connector
+from models.product import Product
 
 URL_SEARCH = "https://affiliate-api.flipkart.net/affiliate/1.0/search.json"
 URL_PRODUCT = "https://affiliate-api.flipkart.net/affiliate/1.0/product.json"
@@ -29,7 +29,16 @@ def extract_product(product):
         result['price'] = product['flipkartSpecialPrice']['amount']
     else:
         result['price'] = product['flipkartSellingPrice']['amount']
-    return result;
+
+    product = Product.get_product(result['product_id'])
+    if not product:
+        args = {'product_id': result['product_id'], 'price': result['price']}
+        product = Product(**args)
+    else:
+        product.price = result['price']
+    product.save()
+    result['price'] = Product.get_prices(product.product_id)
+    return result
 
 def query(query_str):
     params = {
@@ -37,8 +46,10 @@ def query(query_str):
                 'resultCount' : 5
              }
     response = requests.get(URL_SEARCH, headers=headers, params=params)
-    #jsonData = json.loads(response)
-    return transform_query_response(response.json())
+
+    # jsonData = json.loads(response)
+    json_response = response.json()
+    return transform_query_response(json_response)
 
 def query_product(product_id):
     params = {
@@ -47,31 +58,8 @@ def query_product(product_id):
     response = requests.get(URL_PRODUCT, headers=headers, params=params)
     return extract_product(response.json()['productBaseInfoV1'])
 
-def storing_json_to_db():
-    connection = mysql.connector.connect(
-        host="localhost",
-        user="graphit_user",
-        passwd="graphit_pwd",
-        database="graphit_db"
-    )
-
-    mycursor = connection.cursor()
-
-    data = """INSERT INTO graphit_db.products
-    (
-        productId, title, flipkartSpecialPrice, flipkartSellingPrice
-    )
-        Values (%s, %s, %s)"""
-    
-    for i in query_product(response):
-        mycursor.execute(data, (i['productId'], i['title'], i['flipkartSpecialPrice'], i['flipkartSellingPrice']))
-    connection.commit()
-    print(mycursor.rowcount, "was inserted.")
-
-
 if __name__=="__main__":
-    print(query('iphone'))
-    print(query_product('MOBEJB94H7G2FGRW'))
+    Product.get_product('MOBEMK6289R7UFQH')
 
 
 

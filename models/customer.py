@@ -21,3 +21,12 @@ class Customer(BaseModel, Base):
     def __init__(self, *args, **kwargs):
         """initializes Product"""
         super().__init__(*args, **kwargs)
+
+    @staticmethod
+    def get_customer(customer_id):
+        """ Gets Customer"""
+        customers = models.storage.get_session().query(Customer).filter(Customer.customer_id == customer_id).all()
+        if len(customers) > 0:
+            return customers[0]
+        else:
+            return None
