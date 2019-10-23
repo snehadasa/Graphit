@@ -9,8 +9,12 @@
       <link rel="stylesheet" href="{{ url_for('static', filename='styles/footer.css') }}">
       <link rel="stylesheet" href="{{ url_for('static', filename='styles/filters.css') }}">
       <link rel="stylesheet" href="{{ url_for('static', filename='styles/product_common.css') }}">
-      <button class="track">Track</button>
-      <form></form>
+      <button class="user">
+          User
+        <form>
+          <input type="text" name="username">
+        </form>
+      </button>
   </head>
   <body>
     <header>
@@ -31,7 +35,8 @@
             <div class="product_title_description">
                 <h1>{{ item["title"] }}</h1>
                 <p>Price: {{ item["price"] }}</p>
-                <button> <a href="{{ item['product_url'] }}" >Shop from Flipkart </a></button>
+                <button class="flipkart"> <a href="{{ item['product_url'] }}" >Shop from Flipkart </a></button>
+                <button class="track">Track</button>
             </div>
         </div>
         {% endfor %}
