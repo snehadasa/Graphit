@@ -25,6 +25,7 @@ def extract_product(product):
     result['title'] = product['title']
     result['image_url'] = product['imageUrls']['200x200']
     result['description'] = product['productDescription']
+    result['product_url'] = product['productUrl']
     if product['flipkartSpecialPrice']:
         result['price'] = product['flipkartSpecialPrice']['amount']
     else:
@@ -57,9 +58,6 @@ def query_product(product_id):
     }
     response = requests.get(URL_PRODUCT, headers=headers, params=params)
     return extract_product(response.json()['productBaseInfoV1'])
-
-if __name__=="__main__":
-    Product.get_product('MOBEMK6289R7UFQH')
 
 
 

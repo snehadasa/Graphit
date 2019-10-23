@@ -25,10 +25,6 @@ section.filters > button:hover {
     opacity: 0.9;
 }
 
-.product {
-    display: inline-block;
-}
-
 .product_image {
     width: 100px;
     height: 200px;
@@ -38,10 +34,11 @@ section.filters > button:hover {
 .product_title_description {
     box-sizing: inherit;
     display: inline-block;
-    width: 35%;
-    margin-top: 40px;
-    margin-left: 40px;
+    width: 40%;
+    margin-top: 30px;
+    margin-left: 60px;
     margin-bottom: 30px;
+    font-size: 8px;
 }
 
 input:focus {
@@ -82,4 +79,7 @@ body {
     width: 100%;
 }
 
-.product_list.
+h1 {
+    font-size: 20px;
+}
+

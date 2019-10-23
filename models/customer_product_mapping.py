@@ -30,9 +30,6 @@ class CustomerProductMapping(BaseModel, Base):
     products = relationship("Product",
                             backref="customers_products")
 
-    def __init__(self, *args, **kwargs):
-        """initializes Product"""
-        super().__init__(*args, **kwargs)
 
     @staticmethod
     def get_customer_product(customer_id, product_id):

@@ -5,11 +5,32 @@ header {
     border-bottom: 1px solid #CCCCCC;
     display: flex;
     align-items: center;
+    margin-top: 0px;
 }
 
 .logo {
-    width: 142px;
-    height: 60px;
+    width: 150px;
+    height: 100px;
     background: url("../images/logo.png") no-repeat center;
     padding-left: 20px;
+    margin-top: 80px;
+}
+
+.track {
+    font-size: 18px;
+    color: black;
+    background-color: #e1e8ee;
+    height: 35px;
+    border: 0px;
+    border-radius: 4px;
+    width: 15%;
+    margin-left: auto;
+    margin-right: 20px;
+    opacity: 1;
+    display: inline-block;
+    float: right;
+}
+
+.track:hover {
+    opacity:0.8
 }

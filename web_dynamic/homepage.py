@@ -43,8 +43,8 @@ def search_products():
     if not search_query:
         return render_template('homepage.html', items=[]);
     items = query(search_query)
-    #return render_template('homepage.html', items=items)
-    return jsonify(items), 200
+    return render_template('homepage.html', items=items)
+    #return jsonify(items), 200
 
 
 @app.route('/create_customer_mapping')
