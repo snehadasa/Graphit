@@ -43,6 +43,12 @@ class CustomerProductMapping(BaseModel, Base):
             return None
 
     @staticmethod
+    def get_customer_mappings(customer_id):
+        """get all the products related to that customer"""
+        return models.storage.get_session().query(CustomerProductMapping).filter(
+            CustomerProductMapping.customer_id == customer_id).all()
+
+    @staticmethod
     def update_prices():
         """Update prices of all customer"""
         product_ids = models.storage.get_session().query(CustomerProductMapping).distinct(

@@ -6,7 +6,7 @@ from flask import Flask, jsonify, render_template, request
 from models import storage
 from models.customer import Customer
 from models.customer_product_mapping import CustomerProductMapping
-from query_api.query_flipkart import query
+from query_api.query_flipkart import query, query_product
 import uuid
 
 # flask setup
@@ -66,6 +66,20 @@ def create_customer_mapping():
         customer_product = CustomerProductMapping(**kwargs)
         customer_product.save()
     return jsonify({}), 200
+
+@app.route('/customers')
+def customer_products():
+    """get product id based on customers"""
+    customer_id = request.args['customer_id']
+    customers = Customer.get_customer(customer_id)
+    if not customer_id or not customers:
+        return render_template('homepage.html', items=[])
+    products = []
+    for customer_product in CustomerProductMapping.get_customer_mappings(customer_id):
+        product = query_product(customer_product.product_id)
+        if product is not None:
+            products.append(product)
+    return render_template('homepage.html', items=products)
 
 
 if __name__ == "__main__":

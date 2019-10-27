@@ -38,7 +38,7 @@ def extract_product(product):
     else:
         product.price = result['price']
     product.save()
-    result['price'] = Product.get_prices(product.product_id)
+    result['prices'] = Product.get_prices(product.product_id)
     return result
 
 def query(query_str):
@@ -57,7 +57,10 @@ def query_product(product_id):
         'id': product_id
     }
     response = requests.get(URL_PRODUCT, headers=headers, params=params)
-    return extract_product(response.json()['productBaseInfoV1'])
+    if response.ok:
+        return extract_product(response.json()['productBaseInfoV1'])
+    else:
+        return None
 
 
 
