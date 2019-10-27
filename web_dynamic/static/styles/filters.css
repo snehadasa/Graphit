@@ -25,6 +25,10 @@ section.filters > button:hover {
     opacity: 0.9;
 }
 
+.product {
+    display: inline-block;
+}
+
 .product_image {
     width: 100px;
     height: 200px;
@@ -81,11 +85,11 @@ h1 {
     height: 35px;
     border: 0px;
     border-radius: 4px;
-    width: 15%;
     margin-left: auto;
     margin-right: 20px;
     opacity: 1;
     display: inline-block;
+    width: 100%;
 }
 
 .track:hover {
@@ -99,13 +103,35 @@ h1 {
     height: 35px;
     border: 0px;
     border-radius: 4px;
-    width: 15%;
-    margin-left: auto;
+    margin-left: 60px;
     margin-right: 20px;
     opacity: 1;
     display: inline-block;
+    width: 100%;
 }
 
 .flipkart:hover {
     opacity:0.8
+}
+
+.table_history {
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }

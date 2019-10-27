@@ -39,6 +39,7 @@ def extract_product(product):
         product.price = result['price']
     product.save()
     result['prices'] = Product.get_prices(product.product_id)
+    result['price_range'] = Product.prices_range(product.product_id)
     return result
 
 def query(query_str):

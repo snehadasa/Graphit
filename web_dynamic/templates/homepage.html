@@ -18,11 +18,12 @@
   </head>
   <body>
     <header>
-	<img src="https://datavizcatalogue.com/methods/images/top_images/area_graph.png" class="logo" alt="GraphIt">
+	    <img src="https://datavizcatalogue.com/methods/images/top_images/area_graph.png" class="logo" alt="GraphIt">
+        <div class="success" id="success"></div>
     </header>
     <div class="container">
       <section class="filters">
-          <input type="text" class="input-group-field" value="" title="Enter keywords to find products" placeholder="Enter keywords to find products" style="height:60px; width: 800px;">
+          <input type="text" class="input-group-field search-input" value="" title="Enter keywords to find products" placeholder="Enter keywords to find products" style="height:60px; width: 800px;">
           <button onclick="searchPage()">Search</button>
       </section>
     </div>
@@ -34,7 +35,25 @@
                 <h1>{{ item["title"] }}</h1>
                 <p>Price: {{ item["price"] }}</p>
                 <button class="flipkart"> <a href="{{ item['product_url'] }}" >Shop from Flipkart </a></button>
-                <button onclick="trackProduct()" class="track">Price History</button>
+                <section class="username">
+                    <input type="text" class="input-group-field {{ item['product_id'] }}" value="" title="customer_id" id="{{ item['product_id'] }}" placeholder="name" style="height:20px; width: 70px;">
+                    <button onclick="trackProduct('{{ item['product_id'] }}')" class="track">Track Product</button>
+                </section>
+            </div>
+            <div class="table_history">
+                <h2>Price history</h2>
+                <table>
+                    <tr>
+                        <th>Low Price</th>
+                        <th>High Price</th>
+                        <th>Avg Price</th>
+                    </tr>
+                    <tr>
+                        {% for range in item['price_range'] %}
+                            <td>{{  item['price_range'][range] }}</td>`
+                        {% endfor %}
+                    </tr>
+                </table>
             </div>
         </div>
         {% endfor %}
@@ -48,10 +67,26 @@
   <script>
       function searchPage() {
 
-        searchQuery = document.getElementsByClassName("input-group-field")[0].value
+        searchQuery = document.getElementsByClassName("search-input")[0].value
         if (searchQuery) {
             window.location.href = "http://0.0.0.0:5000/search?query=" + searchQuery;
         }
+      }
+
+      function trackProduct(product_id) {
+        console.log(product_id)
+        customer_id = document.getElementById(product_id).value;
+        console.log(product_id);
+        console.log(customer_id);
+        url = "/create_customer_mapping?product_id=" + product_id + "&customer_id=" + customer_id;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                  alert("Tracked Product for user id: " + customer_id);
+            }
+        };
+        xhttp.open("GET", url, true);
+        xhttp.send();
       }
   </script>
   </body>

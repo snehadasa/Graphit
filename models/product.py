@@ -42,3 +42,15 @@ class Product(BaseModel, Base):
             prices[product.created_at.strftime('%Y/%m/%d')] = product.price
         return prices
 
+    @staticmethod
+    def prices_range(product_id):
+        """appending prices into array"""
+        products = models.storage.get_session().query(Product).filter(Product.product_id == product_id).all()
+        prices = []
+        for product in products:
+            prices.append(product.price)
+        results = {}
+        results['min_price'] = min(prices)
+        results['max_price'] = max(prices)
+        results['avg_price'] = sum(prices) / len(prices)
+        return results
