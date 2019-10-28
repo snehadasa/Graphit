@@ -10,7 +10,6 @@
       <link rel="stylesheet" href="{{ url_for('static', filename='styles/filters.css') }}">
       <link rel="stylesheet" href="{{ url_for('static', filename='styles/product_common.css') }}">
       <button class="user">
-          User
         <form action="/customers">
           <input type="text" name="customer_id">
         </form>
@@ -33,12 +32,14 @@
             <img class="product_image" src="{{  item['image_url'] }}" alt={{ item["title"] }}>
             <div class="product_title_description">
                 <h1>{{ item["title"] }}</h1>
-                <p>Price: {{ item["price"] }}</p>
+                <p>Price: ₹{{ item["price"] }}</p>
                 <button class="flipkart"> <a href="{{ item['product_url'] }}" >Shop from Flipkart </a></button>
+                {% if not disable_track_product %}
                 <section class="username">
                     <input type="text" class="input-group-field {{ item['product_id'] }}" value="" title="customer_id" id="{{ item['product_id'] }}" placeholder="name" style="height:20px; width: 70px;">
                     <button onclick="trackProduct('{{ item['product_id'] }}')" class="track">Track Product</button>
                 </section>
+                {% endif %}
             </div>
             <div class="table_history">
                 <h2>Price history</h2>

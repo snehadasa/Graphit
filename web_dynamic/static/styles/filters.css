@@ -27,12 +27,14 @@ section.filters > button:hover {
 
 .product {
     display: inline-block;
+    padding: 20px;
 }
 
 .product_image {
     width: 100px;
     height: 200px;
     margin-left: 10px;
+    padding: 10px;
 }
 
 .product_title_description {
@@ -43,6 +45,7 @@ section.filters > button:hover {
     margin-left: 60px;
     margin-bottom: 30px;
     font-size: 15px;
+    padding: 20px;
 }
 
 input:focus {
@@ -78,6 +81,20 @@ h1 {
     font-size: 30px;
 }
 
+.username {
+     font-size: 18px;
+    color: black;
+    background-color: #e1e8ee;
+    height: 35px;
+    border: 0px;
+    border-radius: 4px;
+    width: 20%;
+    margin-left: auto;
+    margin-right: 20px;
+    opacity: 1;
+    display: inline-block;
+}
+
 .track {
     font-size: 15px;
     color: black;
@@ -107,7 +124,7 @@ h1 {
     margin-right: 20px;
     opacity: 1;
     display: inline-block;
-    width: 100%;
+    width: 20%;
 }
 
 .flipkart:hover {

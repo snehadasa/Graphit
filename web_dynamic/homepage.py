@@ -79,7 +79,7 @@ def customer_products():
         product = query_product(customer_product.product_id)
         if product is not None:
             products.append(product)
-    return render_template('homepage.html', items=products)
+    return render_template('homepage.html', items=products, disable_track_product=True)
 
 
 if __name__ == "__main__":

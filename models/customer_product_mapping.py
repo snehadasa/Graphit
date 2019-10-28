@@ -51,9 +51,13 @@ class CustomerProductMapping(BaseModel, Base):
     @staticmethod
     def update_prices():
         """Update prices of all customer"""
-        product_ids = models.storage.get_session().query(CustomerProductMapping).distinct(
-            CustomerProductMapping.product_id).all()
-        for product_id in product_ids:
-            product = Product.get_product(product_id)
-            if not product:
-                query_product(product_id)
+        customer_product_mappings = models.storage.get_session().query(CustomerProductMapping).all()
+        product_ids = {}
+        for customer_product_mapping in customer_product_mappings:
+            product_id = customer_product_mapping.product_id
+            if product_id not in product_ids.keys():
+                print(product_id)
+                product_ids[product_id] = True
+                product = Product.get_product(product_id)
+                if not product:
+                    query_product(product_id)
