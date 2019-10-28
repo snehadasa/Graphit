@@ -69,7 +69,7 @@ python-crontab==2.3.9
 python-dateutil==2.8.0
 pytz==2019.2
 pyxdg==0.25
-PyYAML==3.12
+PyYAML==5.1
 requests==2.18.4
 roman==2.0.0
 scandir==1.7
