@@ -10,7 +10,6 @@ cairocffi==0.8.0
 certifi==2018.1.18
 cffi==1.11.5
 chardet==3.0.4
-cliapp==1.20170827
 Click==7.0
 cmdtest==0.32
 colorspacious==1.1.0
