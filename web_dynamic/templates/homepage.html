@@ -36,7 +36,7 @@
                 <button class="flipkart"> <a href="{{ item['product_url'] }}" >Shop from Flipkart </a></button>
                 {% if not disable_track_product %}
                 <section class="username">
-                    <input type="text" class="input-group-field {{ item['product_id'] }}" value="" title="customer_id" id="{{ item['product_id'] }}" placeholder="name" style="height:20px; width: 70px;">
+                    <input type="text" class="input-group-field {{ item['product_id'] }}" value="" title="customer_id" id="{{ item['product_id'] }}" placeholder="name" style="height:20px; width: 110px;">
                     <button onclick="trackProduct('{{ item['product_id'] }}')" class="track">Track Product</button>
                 </section>
                 {% endif %}
