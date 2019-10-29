@@ -17,18 +17,11 @@ class CustomerProductMapping(BaseModel, Base):
     __tablename__ = 'customers_products'
 
     product_id = Column(String(60),
-                        ForeignKey('products.product_id'),
                         nullable=False)
 
     customer_id = Column(String(60),
-                         ForeignKey('customers.customer_id'),
                          nullable=False)
 
-    customer = relationship("Customer",
-                            backref="customers_products")
-
-    products = relationship("Product",
-                            backref="customers_products")
 
 
     @staticmethod
