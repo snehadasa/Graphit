@@ -19,6 +19,9 @@ This is my solo project. I got this idea when i was searching ideas about my por
 
 Follow me on twitter.
 
+# Link to my project page
+[**GraphIt**](http://157.245.224.55:5000/)
+
 ## Overview
 **GraphIt** is coded mainly in python. I used mysql for the database, Flask for the web framework, jinja as a wrapper for html. For the frontend, i used HTML, CSS and JavaScript for a dynamic designing of my webpage. I used Flipkart ecommerce api to get the data about the products. I set up a chronjob which automatically schedules a job to update prices everyday at midnight.
 
@@ -69,7 +72,7 @@ A cron job is a Linux command for scheduling a task. This is normally used to sc
 
 I would like to thank holberton School staff for constant support through out the project, my peers for their invaluable support, and my dearest husband Sujith for his regardless amount of help in the material.
 
-#Resources
+# Resources
 
 These are some of the links to the material which was helpful during this project,
 
