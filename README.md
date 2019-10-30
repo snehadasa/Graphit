@@ -25,7 +25,7 @@ Follow me on twitter.
 ### Flipkart API
 For this project i used flipkart ecommerce api to get data about the products. I was limited to get only 5 products at a time. 
 
-...
+```
 
 def transform_query_response(json):
     results = []
@@ -45,11 +45,12 @@ def query(query_str):
     # jsonData = json.loads(response)
     json_response = response.json()
     return transform_query_response(json_response)
-...
+```
 
 ### Chronjob
 A cron job is a Linux command for scheduling a task. This is normally used to schedule a job that is executed periodically i.e., i set up a chronjob to update prices for the tracking at midnight.
-...
+
+```
  def update_prices():
         """Update prices of all customer"""
         customer_product_mappings = models.storage.get_session().query(CustomerProductMapping).all()
@@ -62,7 +63,7 @@ A cron job is a Linux command for scheduling a task. This is normally used to sc
                 product = Product.get_product(product_id)
                 if not product:
                     query_product(product_id)
-...
+```
 
 # Acknowledgments
 
