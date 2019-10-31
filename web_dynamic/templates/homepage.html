@@ -42,6 +42,7 @@
                 </section>
                 {% endif %}
             </div>
+            {% if disable_table %}
             <div class="table_history">
                 <h2>Price history</h2>
                 <table>
@@ -57,6 +58,7 @@
                     </tr>
                 </table>
             </div>
+            {% endif %}
         </div>
         {% endfor %}
     </div>

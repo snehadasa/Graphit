@@ -43,7 +43,7 @@ def search_products():
     if not search_query:
         return render_template('homepage.html', items=[]);
     items = query(search_query)
-    return render_template('homepage.html', items=items)
+    return render_template('homepage.html', items=items, disable_table=True)
     #return jsonify(items), 200
 
 

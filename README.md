@@ -19,6 +19,9 @@ This is my solo project. I got this idea when i was searching ideas about my por
 
 Follow me on twitter.
 
+## Deployment
+Deployment of the project was done using DigitalOcean
+
 ## Overview
 **GraphIt** is coded mainly in python. I used mysql for the database, Flask for the web framework, jinja as a wrapper for html. For the frontend, i used HTML, CSS and JavaScript for a dynamic designing of my webpage. I used Flipkart ecommerce api to get the data about the products. I set up a chronjob which automatically schedules a job to update prices everyday at midnight.
 
