@@ -4,7 +4,7 @@
 
 # Introduction
 
-![Architecture](/home/sneha/Downloads/Graphit architecture.jpg)
+![Architecture](file:///home/sneha/Downloads/Graphit%20architecture.jpg)
 
 ## The Project
 
