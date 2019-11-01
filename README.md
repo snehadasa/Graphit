@@ -4,6 +4,8 @@
 
 # Introduction
 
+![Architecture](/home/sneha/Downloads/Graphit architecture.jpg)
+
 ## The Project
 
 **GraphIt** is a price comparision site for an Indian ecommerce website [Flipkart](https://www.flipkart.com/). This website is open for all users. Users can search for desired products and it redirects to the search page where they can click on track button and the product price gets tracked. Users can view the tracked items in their customer product mapper page.
@@ -13,7 +15,7 @@ This project is my Portfolio Project. This project is a part of Foundations Year
 
 ## The Team
 
-This is my solo project. I got this idea when i was searching ideas about my portfolio project and thought to do a price trackr tool and also thought why not do it for an Indian website.
+This is my solo project. I got this idea when i was searching ideas about my portfolio project and thought to do a price tracker tool and I did it for an Indian ecommerce website called Flipkart.
 
 **Sneha Dasa Lakshminath** [@snehadasa](https://twitter.com/DasaSneha) - Former junior architect. Passionate Software Engineer in progress.
 
@@ -22,8 +24,8 @@ Follow me on twitter.
 ## Deployment
 Deployment of the project was done using DigitalOcean
 # Link to my project page
-[**GraphIt**](http://157.245.224.55:5000/)
-[**Landing Page**](https://snehadasa.github.io/Graphit/)
+* [**GraphIt**](http://157.245.224.55:5000/)
+* [**Landing Page**](https://snehadasa.github.io/Graphit/)
 
 ## Overview
 **GraphIt** is coded mainly in python. I used mysql for the database, Flask for the web framework, jinja as a wrapper for html. For the frontend, i used HTML, CSS and JavaScript for a dynamic designing of my webpage. I used Flipkart ecommerce api to get the data about the products. I set up a chronjob which automatically schedules a job to update prices everyday at midnight.
@@ -54,7 +56,7 @@ def query(query_str):
 ```
 
 ### Chronjob
-A cron job is a Linux command for scheduling a task. This is normally used to schedule a job that is executed periodically i.e., i set up a chronjob to update prices for the tracking at midnight.
+A cron job is a Linux command for scheduling a task. This is normally used to schedule a job that is executed periodically i.e., i set up a chronjob to update prices for the tracking and I set the time to midnight.
 
 ```
  def update_prices():
