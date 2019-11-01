@@ -4,7 +4,7 @@
 
 # Introduction
 
-![Architecture](file:///home/sneha/Downloads/Graphit%20architecture.jpg)
+![Architecture](https://docs.google.com/drawings/d/e/2PACX-1vQkrwlJwSLtBltmLl38tvfplvh1h8YilQFL79gCYRyVKlHaeCKxa7eJEs77Wu_AojvtOYL3durmua0F/pub?w=960&h=720)
 
 ## The Project
 
