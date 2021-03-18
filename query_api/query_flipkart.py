@@ -43,10 +43,10 @@ def extract_product(product):
     result['price_range'] = Product.prices_range(product.product_id)
     return result
 
-def query(query_str):
+def query(query_str, result_count):
     params = {
                 'query' : query_str,
-                'resultCount' : 5
+                'resultCount' : result_count
              }
     response = requests.get(URL_SEARCH, headers=headers, params=params)
 
