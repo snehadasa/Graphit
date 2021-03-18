@@ -2,12 +2,13 @@ import requests, json
 import hashlib
 import base64
 from models.product import Product
+from os import getenv
 
 URL_SEARCH = "https://affiliate-api.flipkart.net/affiliate/1.0/search.json"
 URL_PRODUCT = "https://affiliate-api.flipkart.net/affiliate/1.0/product.json"
 
-headers = { 'Fk-Affiliate-Id' : 'sujithejg',
-            'Fk-Affiliate-Token' : '1e3c864a20654c95ab56a300906e1d69',
+headers = { 'Fk-Affiliate-Id' : getenv('FK_AFFILATE_ID'),
+            'Fk-Affiliate-Token' : getenv('FK_AFFILIATE_TOKEN'),
             'Content-Type' : 'application/json',
             }
 
