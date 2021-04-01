@@ -13,6 +13,7 @@ headers = { 'Fk-Affiliate-Id' : getenv('FK_AFFILATE_ID'),
             }
 
 def transform_query_response(json):
+    """calls extract product in a loop"""
     results = []
     for product_info in json['products']:
         product = product_info['productBaseInfoV1']
@@ -21,6 +22,7 @@ def transform_query_response(json):
     return results
 
 def extract_product(product):
+    """transforms flipkart response into readable form"""
     result = {}
     result['product_id'] = product['productId']
     result['title'] = product['title']
@@ -44,6 +46,7 @@ def extract_product(product):
     return result
 
 def query(query_str, result_count):
+    """queries flipkart and return the list of product info"""
     params = {
                 'query' : query_str,
                 'resultCount' : result_count
@@ -55,6 +58,7 @@ def query(query_str, result_count):
     return transform_query_response(json_response)
 
 def query_product(product_id):
+    """queries individual product from flipkart and return the product info"""
     params = {
         'id': product_id
     }
